@@ -1,0 +1,22 @@
+[
+  {
+    "date": {
+      "field": "reqTimeSec",
+      "formats": [
+        "UNIX"
+      ]
+    }
+  },
+  {
+    "convert": {
+      "field": "rspContentLen",
+      "type": "auto"
+    }
+  },
+  {
+    "remove": {
+      "if": "ctx.dnsLookupTimeMSec == '-'",
+      "field": "dnsLookupTimeMSec"
+    }
+  }
+]
