@@ -1,22 +1,18 @@
-[
-  {
-    "date": {
-      "field": "reqTimeSec",
-      "formats": [
-        "UNIX"
-      ]
+{
+  "mappings": {
+    "properties": {
+      "geoip": {
+        "properties": {
+          "location": {
+            "type": "geo_point"
+          }
+        }
+      }
     }
   },
-  {
-    "convert": {
-      "field": "rspContentLen",
-      "type": "auto"
-    }
-  },
-  {
-    "remove": {
-      "if": "ctx.dnsLookupTimeMSec == '-'",
-      "field": "dnsLookupTimeMSec"
+  "settings": {
+    "index": {
+      "default_pipeline": "dswm"
     }
   }
-]
+}
